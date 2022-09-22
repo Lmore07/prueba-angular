@@ -16,6 +16,7 @@
     </form>
 </div>
 <div  style="padding-top:10%;display:flex; justify-content: center; align-items:center;" >
+
 <div *ngIf="carga" class="spinner-border" >
 </div>
 </div>
@@ -30,7 +31,7 @@
         <th scope="col">Región</th>
         <th scope="col">Población</th>
         <th scope="col">Gentilicio</th>
-        <th scope="col">Opciones</th>
+        <th scope="col">Agregar/Eliminar</th>
       </tr>
     </thead>
     <tbody>
@@ -42,8 +43,8 @@
         <td>{{pais.population | number}}</td>
         <td>{{pais.demonym}}</td>
         <td style="display:flex; justify-content: center; align-items:center;">
-            <button type="button" *ngIf="pais.estado=='nofavorita'" (click)="agregar(pais.name,i)" class="btn btn-success">/</button> 
-            <button *ngIf="pais.estado=='favorita'" type="button" class="btn btn-danger">X</button>
+            <button type="button" *ngIf="pais.estado=='nofavorita'" (click)="agregar(pais.name,i)" class="btn btn-success">✓</button> 
+            <button *ngIf="pais.estado=='favorita'" (click)="borrar(pais.name)" type="button" class="btn btn-danger">X</button>
         </td>
         
       </tr>

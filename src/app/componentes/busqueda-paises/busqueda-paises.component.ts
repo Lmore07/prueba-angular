@@ -24,6 +24,7 @@ export class BusquedaPaisesComponent implements OnInit {
         this.lista_favoritos!.push(favoritos![index]);
       }
     }
+    console.log(this.lista_favoritos);
     this.formBusqueda = this.formBuilder.group({
       busqueda: ['']
     });
@@ -48,11 +49,29 @@ export class BusquedaPaisesComponent implements OnInit {
     this.comprueba_lista();
   }
 
+  borrar(pais:any){
+    let list_aux=this.lista_favoritos!;
+    this.lista_favoritos=[];
+    this.paises.forEach((element: any) => {
+      if(element.name==pais){
+        element.estado="nofavorita";
+      }
+    });  
+    for (let index = 0; index < list_aux!.length; index++) {
+      if(list_aux![index]!=pais){
+        this.lista_favoritos.push(list_aux![index]);
+      }
+    }
+    localStorage.setItem('favoritos',this.lista_favoritos!.toString());
+    this.comprueba_lista()
+  }
+
   comprueba_lista(){
-    for(let i=0,j=0;i<this.paises!.length;i++){
-      if(this.paises[i].name==this.lista_favoritos![j]){
-        this.paises[i].estado="favorita";
-        j++;
+    for(let i=0;i<this.paises!.length;i++){
+      for (let index = 0; index < this.lista_favoritos!.length; index++) {
+        if(this.paises[i].name==this.lista_favoritos![index]){
+          this.paises[i].estado="favorita";
+        }
       }
     }
   }

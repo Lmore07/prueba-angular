@@ -20,7 +20,6 @@ const routes: Routes = [
     canLoad:[GuardsGuard],
     canActivate: [GuardsGuard],
     component:BusquedaPaisesComponent
-    //loadChildren: () => import('./componentes/busqueda-paises/paises/paises.module').then(m => m.PaisesModule),
   },
   {
     path: 'inicio',

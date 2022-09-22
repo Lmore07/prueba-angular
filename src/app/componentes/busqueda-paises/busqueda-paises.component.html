@@ -1,0 +1,52 @@
+
+
+<div style="padding-top: 40px;padding-left: 10px; padding-right: 10px; display:flex; justify-content: center; align-items:center;">
+    <form [formGroup]="formBusqueda" (submit)="buscar()">
+        <div class="row shadow p-3 bg-white rounded">
+            <div class="col-3">
+                <label for="my-input">Ingrese País: </label>
+            </div>
+            <div class="col-6">
+                <input id="my-input" class="form-control" formControlName="busqueda" type="text" name="">
+            </div>
+            <div class="col-3">
+                <button class="btn btn-outline-success" type="submit" id="my-input">Buscar</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div  style="padding-top:10%;display:flex; justify-content: center; align-items:center;" >
+<div *ngIf="carga" class="spinner-border" >
+</div>
+</div>
+<div class="table-responsive">
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">País</th>
+        <th scope="col">Capital</th>
+        <th scope="col">Región</th>
+        <th scope="col">Población</th>
+        <th scope="col">Gentilicio</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pais of paises; let i=index;">
+        <th> {{i+1}} </th>
+        <td>{{pais.name}}</td>
+        <td>{{pais.capital}}</td>
+        <td>{{pais.region}}</td>
+        <td>{{pais.population | number}}</td>
+        <td>{{pais.demonym}}</td>
+        <td style="display:flex; justify-content: center; align-items:center;">
+            <button type="button" *ngIf="pais.estado=='nofavorita'" (click)="agregar(pais.name,i)" class="btn btn-success">/</button> 
+            <button *ngIf="pais.estado=='favorita'" type="button" class="btn btn-danger">X</button>
+        </td>
+        
+      </tr>
+    </tbody>
+</table>
+</div>

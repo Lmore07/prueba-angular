@@ -1,0 +1,17 @@
+<div style="padding-top: 40px;justify-content: center; display:flex; align-items:center;">
+    <div  class="col-6 border rounded shadow p-3 mb-5 bg-white" style="padding: 20px;">
+        <form  [formGroup]="formLogin" (ngSubmit)="login()">
+            <div class="form-group shadow p-3 mb-5 bg-white rounded">
+                <label for="my-input">Usuario</label>
+                <input id="my-input" class="form-control" formControlName="user" type="text" name="">
+            </div>
+            <div class="form-group shadow p-3 mb-5 bg-white rounded">
+                <label for="my-input">Contraseña</label>
+                <input id="my-input" class="form-control" formControlName="password" type="text" name="">
+            </div>
+            <div class="form-group " style="justify-content: center; display:flex; align-items:center;">
+                <button class="btn btn-outline-success" type="submit" id="my-input">Iniciar sesion</button>
+            </div>
+        </form>
+    </div>
+</div>

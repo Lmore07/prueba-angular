@@ -1,0 +1,17 @@
+<div class="table-responsive">
+
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">País</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pais of paises; let i=index;">
+            <th> {{i+1}} </th>
+            <td>{{pais}}</td>
+          </tr>
+        </tbody>
+    </table>
+    </div>

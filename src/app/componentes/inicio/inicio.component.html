@@ -1,0 +1,17 @@
+
+<div style="padding: 1%;">
+    <nav class="nav nav-pills flex-column flex-sm-row">
+        <a class="flex-sm-fill text-sm-center nav-link active" (click)="click('agg')">Agregar/Eliminar Favoritos</a>
+        <a class="flex-sm-fill text-sm-center nav-link" (click)="click('ver')" >Ver Favoritos</a>
+        <a class="flex-sm-fill text-sm-center nav-link" (click)="click('salir')">Cerrar Sesión</a>
+    </nav>
+</div>
+<div *ngIf="accion=='ver'">
+    <app-favoritos></app-favoritos>
+</div>
+<div *ngIf="accion=='agg'">
+    <app-busqueda-paises></app-busqueda-paises>
+</div>
+<div *ngIf="accion=='salir'">
+
+</div>
